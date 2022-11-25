@@ -3,7 +3,6 @@ import Category from '../Category/Category';
 
 const Categories = () => {
     const [categories, setCategories] = useState([]);
-    console.log(categories)
 
     useEffect(() => {
         fetch('http://localhost:5000/categories')
@@ -14,12 +13,12 @@ const Categories = () => {
 
     return (
         <div>
-            <h2 className='text-4xl font-bold my-10'>Our Products Categories</h2>
+            <h2 className='text-4xl font-bold my-10 text-center'>Our Products Categories</h2>
             <div className='lg:flex gap-5 justify-around'>
                 {
                     categories.map(category => <Category
                         key={category._id}
-                        category={category}
+                        categoryDB={category}
                     >
                     </Category>)
 
