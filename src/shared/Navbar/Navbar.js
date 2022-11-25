@@ -14,8 +14,8 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to=''>Home</Link></li>
                     <li><Link to=''>Dashboard</Link></li>
-                    <li><Link to=''>Register</Link></li>
-                    <li><Link to=''>Log In</Link></li>
+                    <li><Link to='/register'>Register</Link></li>
+                    <li><Link to='/login'>Log In</Link></li>
 
                 </ul>
             </div>
