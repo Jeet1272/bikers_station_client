@@ -7,7 +7,7 @@ const Products = () => {
     console.log(products)
     return (
         <div>
-            <h2>Total products: <span className='font-bold'>{products.length}</span></h2>
+            <h2 className='text-center text-4xl'>Total products found: <span className='font-bold'>{products.length}</span></h2>
             {
                 products.map(product => <Product key={product._id} product={product}></Product>)
             }
