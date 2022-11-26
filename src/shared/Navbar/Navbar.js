@@ -20,15 +20,18 @@ const Navbar = () => {
                 <img className='rounded-full' src="https://graphiccloud.net/wp-content/uploads/2019/05/Bicycle-Logo-Design-Example-1200x675.png" alt='' />
             </div>
             <div className="flex-1">
-                <Link className="btn btn-ghost normal-case text-5xl">Bikers Station</Link>
+                <Link to='/' className="text-success normal-case text-5xl ">Bikers Station</Link>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to=''>Home</Link></li>
-                    <li><Link to=''>Dashboard</Link></li>
+
                     {
                         user?.uid ?
-                            <li><Link onClick={handleLogOut} to='/login'>Log Out</Link></li>
+                            <>
+                                <li><Link to=''>Dashboard</Link></li>
+                                <li><Link onClick={handleLogOut} to='/login'>Log Out</Link></li>
+                            </>
                             :
                             <>
                                 <li><Link to='/register'>Register</Link></li>

@@ -13,7 +13,7 @@ const Category = ({ categoryDB }) => {
                 <p>{details}</p>
                 <div className="card-actions justify-end">
                     <Link to={`/category/${category_id}`}>
-                        <button className="btn btn-primary btn-sm">View All</button>
+                        <button className="btn btn-success btn-sm">View All</button>
                     </Link>
                 </div>
             </div>

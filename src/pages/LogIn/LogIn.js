@@ -1,9 +1,12 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 
 const LogIn = () => {
-    const { userSignIn } = useContext(AuthContext)
+    const { userSignIn, googleSignIn } = useContext(AuthContext)
+
+    const googleProvider = new GoogleAuthProvider();
 
     const handleLogIn = (event) => {
         event.preventDefault();
@@ -18,7 +21,15 @@ const LogIn = () => {
                 form.reset()
             })
             .catch(err => console.error(err))
+    }
 
+    const handleGoogleSignIn = () => {
+        googleSignIn(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(err => console.error(err))
     }
 
     return (
@@ -37,7 +48,9 @@ const LogIn = () => {
                 </div>
                 <button type='submit' className="btn btn-success mt-4">Log In</button>
             </form>
-            <p className='mt-4'>New in Bikers Station? Please do <Link to='/register' className='text-info font-bold'>Register</Link></p>
+            <p className='mt-1'>New in Bikers Station? Please do <Link to='/register' className='text-info font-bold'>Register</Link></p>
+            <h3 className='ml-12 mt-7 text-info'>Log In with Google</h3>
+            <button onClick={handleGoogleSignIn} className="btn btn-wide btn-success mt-4"><Link>Google</Link></button>
         </div>
     );
 };
