@@ -39,6 +39,13 @@ const Register = () => {
                         <span className="label-text">Password</span>
                     </label>
                     <input type="password" placeholder="Type here" name="password" className="input input-bordered w-full max-w-xs" required />
+                    <label className="label">
+                        <span className="label-text">Select One</span>
+                    </label>
+                    <select className="select select-bordered w-full max-w-xs">
+                        <option disabled selected>User</option>
+                        <option name='seller'>Seller</option>
+                    </select>
                 </div>
                 <button type='submit' className="btn btn-success mt-4">Register</button>
             </form>
