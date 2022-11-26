@@ -2,35 +2,30 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 
-const Register = () => {
-    const { createUser } = useContext(AuthContext)
+const LogIn = () => {
+    const { userSignIn } = useContext(AuthContext)
 
-    const handleRegister = (event) => {
+    const handleLogIn = (event) => {
         event.preventDefault();
         const form = event.target
-        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
 
-        createUser(email, password)
+        userSignIn(email, password)
             .then(result => {
-                const user = result.user
+                const user = result.user;
                 console.log(user)
-                alert('User created successfully')
                 form.reset()
             })
             .catch(err => console.error(err))
+
     }
 
     return (
         <div className='m-20'>
-            <h2 className='text-3xl ml-10'>Please Register</h2>
-            <form onSubmit={handleRegister}>
+            <h2 className='text-3xl ml-10'>Please Log In</h2>
+            <form onSubmit={handleLogIn}>
                 <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                        <span className="label-text">Your Name?</span>
-                    </label>
-                    <input type="text" placeholder="Type here" name="name" className="input input-bordered w-full max-w-xs" />
                     <label className="label">
                         <span className="label-text">Your Email</span>
                     </label>
@@ -40,11 +35,11 @@ const Register = () => {
                     </label>
                     <input type="password" placeholder="Type here" name="password" className="input input-bordered w-full max-w-xs" required />
                 </div>
-                <button type='submit' className="btn btn-success mt-4">Register</button>
+                <button type='submit' className="btn btn-success mt-4">Log In</button>
             </form>
-            <p className='mt-4'>Have an account? <Link to='/login' className='text-info font-bold'>Log In</Link></p>
+            <p className='mt-4'>New in Bikers Station? Please do <Link to='/register' className='text-info font-bold'>Register</Link></p>
         </div>
     );
 };
 
-export default Register;
+export default LogIn;
