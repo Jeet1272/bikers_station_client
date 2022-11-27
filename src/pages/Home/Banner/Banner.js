@@ -7,7 +7,7 @@ const Banner = () => {
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
                     <h1 className="mb-5 text-5xl font-bold">Welcome to <span className='text-success'>Bikers Station</span></h1>
-                    <p className="mb-5 font-bold">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <p className="mb-5 font-bold text-white">Search For Bike Valuation. Find Useful And Attractive Results. Bikers Station will Help You. Discover & Compare The Best Options For Your Search. Easy to Use. Reliable Info. Satisfaction Guarantee.</p>
 
                 </div>
             </div>
