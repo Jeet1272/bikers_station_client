@@ -8,7 +8,7 @@ const Product = ({ product, setBike }) => {
     return (
         <div>
             <div className="card lg:card-side bg-base-100 shadow-xl my-8">
-                <figure className='w-1/2'><img className='w-96' src="https://placeimg.com/400/400/arch" alt="Album" /></figure>
+                <figure className='w-1/2'><img className='w-96' src={picture} alt="Album" /></figure>
                 <div className="card-body">
                     <h2 className="card-title"><span className='text-white'>Brand:</span> {category}</h2>
                     <h2 className="card-title"><span className='text-white'>Name:</span> {name}</h2>
