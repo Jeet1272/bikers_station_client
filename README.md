@@ -1,3 +1,15 @@
+#  Project's features and functionalities
+
+* Bikers Station is a resale platform of second-hand bike.
+* You can add all type bike for sale.
+* Have subscribe option for update latest news
+* Have buying option 
+* Have Brand wise bike showing option
+
+# Live link
+
+https://bikers-station-server.vercel.app
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
