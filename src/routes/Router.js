@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
+                loader: ({ params }) => fetch(`https://bikers-station-server.vercel.app/category/${params.id}`),
                 element: <PrivateRoute><Products></Products></PrivateRoute>
             }
         ]
