@@ -16,10 +16,12 @@ const UserContext = ({ children }) => {
     }
 
     const userSignIn = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const googleSignIn = (provider) => {
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
