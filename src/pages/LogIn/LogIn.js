@@ -32,9 +32,25 @@ const LogIn = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                navigate(from, { replace: true })
+                saveUser(user.displayName, user.email,)
             })
             .catch(err => console.error(err))
+    }
+
+    const saveUser = (name, email, role = "User") => {
+        const user = { name, email, role }
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                navigate(from, { replace: true })
+            })
     }
 
     return (

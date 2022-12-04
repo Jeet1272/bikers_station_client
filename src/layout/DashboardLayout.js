@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../context/UserContext';
+import useSeller from '../hooks/useSeller';
 
 import Navbar from '../shared/Navbar/Navbar';
 
 const DashboardLayout = () => {
+    const { user } = useContext(AuthContext)
+    const [isSeller] = useSeller(user.email)
+
 
     return (
         <div>
@@ -17,14 +22,19 @@ const DashboardLayout = () => {
                         <div className="flex-1 px-2 mx-2 text-3xl">Dashboard</div>
                         <div className="flex flex-col">
 
-                            <ul className="menu menu-horizontal">
-                                <li><Link to='/dashboard'>My Orders</Link></li>
-                            </ul>
+                            {
 
-                            <ul className="menu menu-horizontal">
-                                <li><Link to='/dashboard/addproducts'>Add A Product</Link></li>
-                                <li><Link to='/dashboard/myproducts'>My Products</Link></li>
-                            </ul>
+                                <ul className="menu menu-horizontal">
+                                    <li><Link to='/dashboard/my-orders'>My Orders</Link></li>
+                                </ul>
+                            }
+                            {
+                                isSeller &&
+                                <ul className="menu menu-horizontal">
+                                    <li><Link to='/dashboard/add-products'>Add A Product</Link></li>
+                                    <li><Link to='/dashboard/my-products'>My Products</Link></li>
+                                </ul>
+                            }
                         </div>
                     </div>
                     <Outlet></Outlet>

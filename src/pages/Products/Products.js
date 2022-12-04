@@ -16,7 +16,10 @@ const Products = () => {
                     ></Product>)
                 }
             </div>
-            <BookingModal bike={bike}></BookingModal>
+            {
+                bike && <BookingModal bike={bike} setBike={setBike}></BookingModal>
+
+            }
         </div>
     );
 };

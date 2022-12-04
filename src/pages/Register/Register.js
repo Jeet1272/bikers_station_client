@@ -13,6 +13,8 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const role = form.role.value;
+        console.log(name, role)
 
         createUser(email, password)
             .then(result => {
@@ -23,11 +25,27 @@ const Register = () => {
                     displayName: name
                 }
                 updateUser(userInfo)
-                    .then(() => { navigate('/') })
+                    .then(() => { saveUser(name, email, role) })
                     .catch((error) => console.log(error))
                 form.reset()
             })
             .catch(err => console.error(err))
+    }
+
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role }
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('save data', data)
+                navigate('/')
+            })
     }
 
     return (
@@ -51,9 +69,9 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Select One</span>
                         </label>
-                        <select className="select select-bordered w-full max-w-xs">
+                        <select name='role' className="select select-bordered w-full max-w-xs">
                             <option disabled selected>User</option>
-                            <option name='seller'>Seller</option>
+                            <option>Seller</option>
                         </select>
                     </div>
                     <button type='submit' className="btn btn-success mt-4">Register</button>

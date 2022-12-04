@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Category = ({ categoryDB }) => {
-    console.log(categoryDB)
     const { category, picture, details, category_id } = categoryDB
 
     return (
